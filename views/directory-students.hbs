@@ -1,0 +1,61 @@
+<center>
+  <div class="container p-4">
+    <div class="card">
+      <div class="card-header">
+        <h1>Alumnos</h1>
+      </div>
+      <div class="card-body">
+        {{#if sdir}}
+          <table class="table table-sm" id="table">
+            <thead>
+              <tr class="text-center">  
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">Carrera</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              {{#each sdir}}
+                <tr>
+                  <td>{{this.name}} {{this.last_name}}</td>
+                  <td>{{this.email}}</td>
+                  <td>{{this.phone}}</td>
+                  <td>{{this.id}}</td>
+                  <td>{{this.career}}</td>
+                  <td>{{this.semester}}</td>
+                  <td><a
+                      class="btn btn-danger btn-sm"
+                      href="/delete-student/{{this._id}}"
+                    >
+                      Borrar
+                    </a></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+        <h4>No hay información</h4>
+        {{/if}}
+      </div>
+      <div class="card-footer">
+        <a href="/new-info-student" class="btn btn-primary">
+          Agregar información
+        </a>
+        <a href="/" class="btn btn-dark">
+          Volver a Inicio
+        </a>
+        <input
+          class="btn btn-dark"
+          type="button"
+          name="png"
+          id="png"
+          value="Descargar Directorio"
+        />
+      </div>
+    </div>
+  </div>
+</center>

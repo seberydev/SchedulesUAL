@@ -1,0 +1,41 @@
+<center>
+  <div class="container p-4">
+    <div class="card">
+      <div class="card-header">
+        <h1>Horarios-Maestros</h1>
+      </div>
+      <div class="card-body">
+        {{#if person}}
+          <table class="table table-sm">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Maestro</th>
+                <th scope="col">Materia</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Horas</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              {{#each person}}
+              <tr>
+                <td>{{this.teacher}}</td>
+                <td>{{this.subject}}</td>
+                <td>{{this.semester}}</td>
+                <td>{{this.hour}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <h4>No hay horarios</h4>
+        {{/if}}
+      </div>
+      <div class="card-footer">
+        <a href="/" class="btn btn-primary">
+          Inicio
+        </a>
+        <a href="/new-schedule" class="btn btn-dark">Agregar Horario</a>
+      </div>
+    </div>
+  </div>
+</center>
