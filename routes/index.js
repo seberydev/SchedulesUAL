@@ -127,6 +127,9 @@ router.get("/delete-teacher/:_id", (req, res) => {
 const schedules = fs.readFileSync("json/db_schedules.json");
 let schedule = JSON.parse(schedules);
 
+const json_subj = fs.readFileSync("json/db_subjects.json");
+let subDir = JSON.parse(json_subj);
+
 /* GET students schedule */
 router.get("/students-schedules", (req, res) => {
   res.render("students-schedules", { title: "Horarios Alumnos", schedule });
@@ -139,7 +142,7 @@ router.get("/teachers-schedules", (req, res) => {
 
 /* GET new schedule */
 router.get("/new-schedule", (req, res) => {
-  res.render("new-schedule", { title: "Cree Nuevos Horarios", tdir });
+  res.render("new-schedule", { title: "Cree Nuevos Horarios", tdir, subDir });
 });
 
 /* POST new schedule */

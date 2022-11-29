@@ -14,37 +14,22 @@
       <br />
       <label class="form-label">Seleccionar Materia:</label>
       <select class="form-select" name="subject" id="subject">
-        <optgroup label="Primero">
-          {{!-- <option value="Fundamentos de Programación">Fundamentos de
-            Programación</option>
-          <option value="Destrezas del Aprendizaje">Destrezas del Aprendizaje</option>
-          <option value="Matemáticas I">Matemáticas I</option>
-          <option
-            value="Introducción a la Ingeniería en Sistemas
-            Computacionales"
-          >Introducción a la Ingeniería en Sistemas Computacionales</option>
-          <option value="Electricidad y Magnetismo">Electricidad y Magnetismo</option>
-          <option value="Desarrollo de Entorno de Videojuegos">Desarrollo de
-            Entorno de Videojuegos</option>
-        </optgroup> --}}
-        <optgroup label="Tercero">
-          {{!-- <option
-            value="Introducción a las
-            Bases de Datos"
-          >Introducción a las Bases de Datos</option>
-          <option value="Programación II">Programación II</option>
-          <option value="Redes I">Redes I</option>
-          <option value="Integración y Programación de Videojuegos">Integración
-            y Programación de Videojuegos</option>
-          <option value="Matemóticas III">Matemóticas III</option> --}}
-        </optgroup>
+        <option selected disabled>Materia</option>
+        {{#each subDir}}
+        <optgroup label="{{this.semester}}">
+          {{#each this.subjects}}
+          {{#each this}}
+          <option value="{{@key}}">{{@key}}</option>
+          {{/each}}
+          {{/each}}
+          {{/each}}
       </select>
       <br />
       <label class="form-label" for="teacher">Seleccionar Maestros:</label>
       <select class="form-select" name="teacher" id="teacher">
         {{#each tdir}}
-          <option value="{{this.name}} {{this.last_name}}">{{this.name}}
-            {{this.last_name}}</option>
+        <option value="{{this.name}} {{this.last_name}}">{{this.name}}
+          {{this.last_name}}</option>
         {{/each}}
       </select>
       <br />
