@@ -5,7 +5,7 @@
         <h1>Horarios-Maestros</h1>
       </div>
       <div class="card-body">
-        {{#if person}}
+        {{#if schedule}}
           <table class="table table-sm">
             <thead>
               <tr class="text-center">
@@ -13,16 +13,23 @@
                 <th scope="col">Materia</th>
                 <th scope="col">Semestre</th>
                 <th scope="col">Horas</th>
+                <th scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody class="text-center">
-              {{#each person}}
-              <tr>
-                <td>{{this.teacher}}</td>
-                <td>{{this.subject}}</td>
-                <td>{{this.semester}}</td>
-                <td>{{this.hour}}</td>
-              </tr>
+              {{#each schedule}}
+                <tr>
+                  <td>{{this.teacher}}</td>
+                  <td>{{this.subject}}</td>
+                  <td>{{this.semester}}</td>
+                  <td>{{this.hour}}</td>
+                  <td><a
+                      class="btn btn-danger btn-sm"
+                      href="/delete-schedule/{{this._id}}"
+                    >
+                      Borrar
+                    </a></td>
+                </tr>
               {{/each}}
             </tbody>
           </table>

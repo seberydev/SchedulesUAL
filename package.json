@@ -1,19 +1,20 @@
 {
-  "name": "schedulesual",
+  "name": "json-db",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "build":"node ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "express": "~4.18.2",
     "hbs": "^4.2.0",
-    "http-errors": "~1.6.3",
+    "http-errors": "~2.0.0",
     "joi": "^17.7.0",
-    "morgan": "~1.9.1",
+    "morgan": "~1.10.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

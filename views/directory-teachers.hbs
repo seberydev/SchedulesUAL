@@ -4,6 +4,15 @@
       <div class="card-header">
         <h1>Maestros</h1>
       </div>
+      <div class="form-outline p-3 pb-0">
+        <input
+          type="search"
+          id="busqueda"
+          class="form-control"
+          placeholder="Buscar por matrícula"
+          aria-label="Search"
+        />
+      </div>
       <div class="card-body">
         {{#if tdir}}
           <table class="table table-sm" id="table">
@@ -16,13 +25,13 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center" id="directoryContainer">
               {{#each tdir}}
-                <tr>
+                <tr id={{this.id}} class="dynamic">
                   <td>{{this.name}} {{this.last_name}}</td>
                   <td>{{this.email}}</td>
                   <td>{{this.phone}}</td>
-                  <td>{{this.id}}</td>
+                  <td class="id">{{this.id}}</td>
                   <td><a
                       class="btn btn-danger btn-sm"
                       href="/delete-teacher/{{this._id}}"

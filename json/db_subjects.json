@@ -1,0 +1,29 @@
+[
+    {
+        "semester" : "1ero",
+        "subjects" : [
+            {
+                "Fundamentos de Programación" : "Fundamentos de Programación",
+                "Destrezas del Aprendizaje" : "Destrezas del Aprendizaje",
+                "Matemáticas I" : "Matemáticas I",
+                "Introducción a la Ingeníeria en Sistemas Computacionales" : "Introducción a la Ingeniería en Sistemas Computacionales",
+                "Electricidad y Magnetismo" : "Electricidad y Magnetismo",
+                "Desarrollo de Entorno de Videojuegos" : "Desarrollo de Entorno de Videojuegos"
+
+            }
+        ] 
+    },
+    {
+        "semester" : "3ero",
+        "subjects" : [
+            {
+                "Introducción a las Bases de Datos" : "Introducción a las Bases de Datos",
+                "Programación II" : "Programación II",
+                "Redes I" : "Redes I",
+                "Integración y Programación de Videojuegos" : "Integración y Programación de Videojuegos",
+                "Matemáticas III" : "Matemáticas III",
+                "Electrónica Digital" : "Electrónica Digital"
+            }
+        ]
+    }
+]

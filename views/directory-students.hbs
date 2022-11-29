@@ -4,11 +4,20 @@
       <div class="card-header">
         <h1>Alumnos</h1>
       </div>
+      <div class="form-outline p-3 pb-0">
+        <input
+          type="search"
+          id="busquedastudent"
+          class="form-control"
+          placeholder="Buscar por matrícula"
+          aria-label="Search"
+        />
+      </div>
       <div class="card-body">
         {{#if sdir}}
           <table class="table table-sm" id="table">
             <thead>
-              <tr class="text-center">  
+              <tr class="text-center">
                 <th scope="col">Nombre</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Telefono</th>
@@ -18,13 +27,13 @@
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center" id="directoryContainerstudents">
               {{#each sdir}}
-                <tr>
+                <tr id={{this.id}} class="dynamicstudent">
                   <td>{{this.name}} {{this.last_name}}</td>
                   <td>{{this.email}}</td>
                   <td>{{this.phone}}</td>
-                  <td>{{this.id}}</td>
+                  <td class="idstudent">{{this.id}}</td>
                   <td>{{this.career}}</td>
                   <td>{{this.semester}}</td>
                   <td><a
@@ -38,7 +47,7 @@
             </tbody>
           </table>
         {{else}}
-        <h4>No hay información</h4>
+          <h4>No hay información</h4>
         {{/if}}
       </div>
       <div class="card-footer">

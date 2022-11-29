@@ -124,17 +124,17 @@ router.get("/delete-teacher/:_id", (req, res) => {
 // Teachers ---------------------------------------------------------------------------------------------------------
 
 // Schedules --------------------------------------------------------------------------------------------------------
-const people = fs.readFileSync("json/db_schedules.json");
-let person = JSON.parse(people);
+const schedules = fs.readFileSync("json/db_schedules.json");
+let schedule = JSON.parse(schedules);
 
 /* GET students schedule */
 router.get("/students-schedules", (req, res) => {
-  res.render("students-schedules", { title: "Horarios Alumnos", person });
+  res.render("students-schedules", { title: "Horarios Alumnos", schedule });
 });
 
 /* GET teachers schedule */
 router.get("/teachers-schedules", (req, res) => {
-  res.render("teachers-schedules", { title: "Horarios Maestros", person });
+  res.render("teachers-schedules", { title: "Horarios Maestros", schedule });
 });
 
 /* GET new schedule */
@@ -158,11 +158,19 @@ router.post("/new-schedule", function (req, res, next) {
     hour: validatedData.value.hour,
   };
 
-  person.push(infoData);
+  schedule.push(infoData);
 
-  const json_dir = JSON.stringify(person);
+  const json_dir = JSON.stringify(schedule);
   fs.writeFileSync("json/db_schedules.json", json_dir, "utf8");
 
+  res.redirect("/teachers-schedules");
+});
+
+/* Delete schedule */
+router.get("/delete-schedule/:_id", (req, res) => {
+  schedule = schedule.filter((schedule) => schedule._id != req.params._id);
+  const json_dir = JSON.stringify(schedule);
+  fs.writeFileSync("json/db_schedules.json", json_dir, "utf8");
   res.redirect("/teachers-schedules");
 });
 
