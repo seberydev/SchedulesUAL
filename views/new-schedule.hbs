@@ -38,6 +38,22 @@
         {{/each}}
       </select>
       <br />
+      <label class="form-label" for="date-start">Inicio de la Materia:</label>
+      <input
+        class="form-control"
+        type="date"
+        name="date-start"
+        id="date-start"
+      />
+      <br />
+      <label class="form-label" for="date-end">Fin de la Materia:</label>
+      <input
+        class="form-control"
+        type="date"
+        name="date-end"
+        id="date-end"
+      />
+      <br />
       <label class="form-label" for="teacher">Seleccionar Maestros:</label>
       <select class="form-select" name="teacher" id="teacher">
         {{#each tdir}}
