@@ -24,7 +24,7 @@
                 <th scope="col">Matricula</th>
                 <th scope="col">Carrera</th>
                 <th scope="col">Semestre</th>
-                <th scope="col">Opciones</th>
+                <th id="btn" scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody class="text-center" id="directoryContainerstudents">
@@ -37,6 +37,7 @@
                   <td>{{this.career}}</td>
                   <td>{{this.semester}}</td>
                   <td><a
+                      id="btn"
                       class="btn btn-danger btn-sm"
                       href="/delete-student/{{this._id}}"
                     >

@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         {{#if schedule}}
-          <table class="table table-sm">
+          <table class="table table-sm" id="table">
             <thead>
               <tr class="text-center">
                 <th scope="col">Maestro</th>
@@ -14,7 +14,7 @@
                 <th scope="col">Semestre</th>
                 <th scope="col">Aula</th>
                 <th scope="col">Horas</th>
-                <th scope="col">Opciones</th>
+                <th id="btn" scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -25,7 +25,7 @@
                   <td>{{this.semester}}</td>
                   <td>{{this.room}}</td>
                   <td>{{this.hour}}</td>
-                  <td><a
+                  <td><a id="btn"
                       class="btn btn-danger btn-sm"
                       href="/delete-schedule/{{this._id}}"
                     >
@@ -44,6 +44,13 @@
           Inicio
         </a>
         <a href="/new-schedule" class="btn btn-dark">Agregar Horario</a>
+        <input
+          class="btn btn-dark"
+          type="button"
+          name="png"
+          id="png"
+          value="Descargar Horario"
+        />
       </div>
     </div>
   </div>

@@ -22,7 +22,7 @@
                 <th scope="col">Correo</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Matricula</th>
-                <th scope="col">Opciones</th>
+                <th id="btn" scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody class="text-center" id="directoryContainer">
@@ -33,6 +33,7 @@
                   <td>{{this.phone}}</td>
                   <td class="id">{{this.id}}</td>
                   <td><a
+                      id="btn"
                       class="btn btn-danger btn-sm"
                       href="/delete-teacher/{{this._id}}"
                     >
