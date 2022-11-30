@@ -4,6 +4,15 @@
       <div class="card-header">
         <h1>Horarios-Maestros</h1>
       </div>
+      <div class="form-outline p-3 pb-0">
+        <input
+          type="search"
+          id="busquedateachers"
+          class="form-control"
+          placeholder="Buscar por semestre"
+          aria-label="Search"
+        />
+      </div>
       <div class="card-body">
         {{#if schedule}}
           <table class="table table-sm" id="table">
@@ -17,15 +26,16 @@
                 <th id="btn" scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody class="text-center" id="directoryContainerteachers">
               {{#each schedule}}
-                <tr>
+                <tr id={{this.semester}} class="dynamicteachers">
                   <td>{{this.teacher}}</td>
                   <td>{{this.subject}}</td>
-                  <td>{{this.semester}}</td>
+                  <td class="idteachers">{{this.semester}}</td>
                   <td>{{this.room}}</td>
                   <td>{{this.hour}}</td>
-                  <td><a id="btn"
+                  <td><a
+                      id="btn"
                       class="btn btn-danger btn-sm"
                       href="/delete-schedule/{{this._id}}"
                     >
