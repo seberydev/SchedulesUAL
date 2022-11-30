@@ -153,20 +153,50 @@ router.post("/new-schedule", function (req, res, next) {
     res.status(400).send("Verify Data");
   }
 
-  const infoData = {
-    _id: uuid(),
-    semester: validatedData.value.semester,
-    subject: validatedData.value.subject,
-    teacher: validatedData.value.teacher,
-    hour: validatedData.value.hour,
-  };
+  let checkTeacher = schedule.find(
+    (x) =>
+      x.teacher == validatedData.value.teacher &&
+      x.hour == validatedData.value.hour
+  );
 
-  schedule.push(infoData);
+  let checkSem = schedule.find(
+    (x) =>
+      x.teacher == validatedData.value.teacher &&
+      x.semester == validatedData.value.semester
+  );
 
-  const json_dir = JSON.stringify(schedule);
-  fs.writeFileSync("json/db_schedules.json", json_dir, "utf8");
+  let checkRoom = schedule.find(
+    (x) =>
+      x.room == validatedData.value.room && x.hour == validatedData.value.hour
+  );
 
-  res.redirect("/teachers-schedules");
+  if (!checkTeacher) {
+    if (!checkRoom) {
+      if (!checkSem) {
+        const infoData = {
+          _id: uuid(),
+          semester: validatedData.value.semester,
+          room: validatedData.value.room,
+          subject: validatedData.value.subject,
+          teacher: validatedData.value.teacher,
+          hour: validatedData.value.hour,
+        };
+
+        schedule.push(infoData);
+
+        const json_dir = JSON.stringify(schedule);
+        fs.writeFileSync("json/db_schedules.json", json_dir, "utf8");
+
+        res.redirect("/teachers-schedules");
+      } else {
+        res.send("Este profesor no puede dar clase de nuevo al mismo grupo");
+      }
+    } else {
+      res.send("Esta aula ya está en uso a esa hora");
+    }
+  } else {
+    res.send("Este profe ya tiene esa hora clase");
+  }
 });
 
 /* Delete schedule */

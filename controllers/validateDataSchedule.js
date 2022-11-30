@@ -5,6 +5,10 @@ const schema = joi.object({
     .string()
     .trim()
     .required(),
+    room: joi
+    .string()
+    .trim()
+    .required(),
     subject: joi
     .string()
     .trim()

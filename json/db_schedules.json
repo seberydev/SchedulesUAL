@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "_id": "f4fcf45b-a1f9-448b-a6c0-4f1964c5f104",
+    "semester": "1ero",
+    "room": "ASD1",
+    "subject": "Introducción a la Ingeníeria en Sistemas Computacionales",
+    "teacher": "Héctor Sánchez",
+    "hour": "9:00 - 11:00"
+  }
+]
