@@ -13,6 +13,14 @@ const schema = joi.object({
     .string()
     .trim()
     .required(),
+    date_start: joi
+    .string()
+    .trim()
+    .required(),
+    date_end: joi
+    .string()
+    .trim()
+    .required(),
     teacher: joi
     .string()
     .trim()

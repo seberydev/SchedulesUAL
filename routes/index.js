@@ -11,6 +11,11 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Schedules" });
 });
 
+/* GET about page. */
+router.get("/about", function (req, res, next) {
+  res.render("about", { title: "Acerca De" });
+});
+
 // Students ---------------------------------------------------------------------------------------------------------
 const json_sdir = fs.readFileSync("json/db_directory_student.json");
 let sdir = JSON.parse(json_sdir);
@@ -178,6 +183,8 @@ router.post("/new-schedule", function (req, res, next) {
           semester: validatedData.value.semester,
           room: validatedData.value.room,
           subject: validatedData.value.subject,
+          date_start: validatedData.value.date_start,
+          date_end: validatedData.value.date_end,
           teacher: validatedData.value.teacher,
           hour: validatedData.value.hour,
         };
