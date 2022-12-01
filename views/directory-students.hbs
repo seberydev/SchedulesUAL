@@ -1,72 +1,54 @@
-<nav id="navbar">
-   </nav>
+{{>navbar}}
+
 <center>
   <div class="container p-4">
     <div class="card">
       <div class="card-header bg-success text-white">
-        <h1 >Alumnos</h1>
+        <h1>Alumnos</h1>
       </div>
       <div class="form-outline p-3 pb-0">
-        <input
-          type="search"
-          id="busquedastudent"
-          class="form-control"
-          placeholder="Buscar por matrícula"
-          aria-label="Search"
-        />
+        <input type="search" id="busquedastudent" class="form-control" placeholder="Buscar por matrícula"
+          aria-label="Search" />
       </div>
       <div class="card-body">
         {{#if sdir}}
-          <table class="table table-sm" id="table">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Matricula</th>
-                <th scope="col">Carrera</th>
-                <th scope="col">Semestre</th>
-                <th id="btn" scope="col">Opciones</th>
-              </tr>
-            </thead>
-            <tbody class="text-center" id="directoryContainerstudents">
-              {{#each sdir}}
-                <tr id={{this.id}} class="dynamicstudent">
-                  <td>{{this.name}} {{this.last_name}}</td>
-                  <td>{{this.email}}</td>
-                  <td>{{this.phone}}</td>
-                  <td class="idstudent">{{this.id}}</td>
-                  <td>{{this.career}}</td>
-                  <td>{{this.semester}}</td>
-                  <td><a
-                      id="btn"
-                      class="btn btn-danger btn-sm"
-                      href="/delete-student/{{this._id}}"
-                    >
-                      Borrar
-                    </a></td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+        <table class="table table-sm" id="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Matricula</th>
+              <th scope="col">Carrera</th>
+              <th scope="col">Semestre</th>
+              <th id="btn" scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody class="text-center" id="directoryContainerstudents">
+            {{#each sdir}}
+            <tr id={{this.id}} class="dynamicstudent">
+              <td>{{this.name}} {{this.last_name}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.phone}}</td>
+              <td class="idstudent">{{this.id}}</td>
+              <td>{{this.career}}</td>
+              <td>{{this.semester}}</td>
+              <td><a id="btn" class="btn btn-danger btn-sm" href="/delete-student/{{this._id}}">
+                  Borrar
+                </a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
         {{else}}
-          <h4>No hay información</h4>
+        <h4>No hay información</h4>
         {{/if}}
       </div>
       <div class="card-footer d-flex justify-content-start">
         <a href="/new-info-student" class="btn btn-success m-1">
           Agregar información
         </a>
-        <a href="/" class="btn btn-success m-1">
-          Volver a Inicio
-        </a>
-        <input
-          class="btn btn-success m-1"
-          type="button"
-          name="png"
-          id="png"
-          value="Descargar Directorio"
-        />
+        <input class="btn btn-success m-1" type="button" name="png" id="png" value="Descargar Directorio" />
       </div>
     </div>
   </div>

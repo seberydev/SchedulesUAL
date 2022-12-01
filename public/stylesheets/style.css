@@ -36,6 +36,7 @@ width: 100%;
     top: 0;
     bottom: 0;
     box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
   }
   
   #navbar ul{
