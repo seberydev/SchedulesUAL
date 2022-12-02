@@ -1,12 +1,18 @@
-const searchElementteachers = document.getElementById("busquedateachers");
-const directoryContainerteachers = document.getElementById(
+const searchElementTeachers = document.getElementById("busquedateachers");
+const directoryContainerTeachers = document.getElementById(
   "directoryContainerteachers"
 );
+var oTable = document.querySelector('.teacherScheduleTable');
 
-searchElementteachers.addEventListener("keyup", (e) => {
+document.addEventListener('DOMContentLoaded', (event) => {
+  checkClass()
+});
+
+// BUSCADOR EN LOS HORARIOS DE MAESTROS
+searchElementTeachers.addEventListener("keyup", (e) => {
   const id = e.target.value;
 
-  const nodes = Array.from(directoryContainerteachers.childNodes);
+  const nodes = Array.from(directoryContainerTeachers.childNodes);
   const ids = nodes
     .filter((tr) => tr.nodeName === "TR")
     .map((el) => Array.from(el.childNodes))
@@ -42,4 +48,24 @@ searchElementteachers.addEventListener("keyup", (e) => {
       divsToHide[i].style.display = "none";
     }
   }
+
+  checkClass()
 });
+
+// NO DEJAR QUE SE MUESTREN LAS CLASES "IDIOMAS" EN LOS HORARIOS
+function checkClass() {
+    //gets rows of table
+    let rowLength = oTable.rows.length;
+
+    //loops through rows
+    for (i = 0; i < rowLength; i++) {
+
+        //gets cell 3 of current row
+        let oCells = oTable.rows.item(i).cells;
+        let cell = oCells.item(1).innerHTML;
+
+        if (cell == "Idiomas"){
+            oTable.rows.item(i).style.display = "none"
+        }
+    }
+}

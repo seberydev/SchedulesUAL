@@ -6,18 +6,46 @@
       <div class="card-header bg-success text-white">
         <h1>Horarios-Alumnos</h1>
       </div>
+      <div class="form-outline p-3 pb-0">
+        <input
+          type="search"
+          id="busquedastudent"
+          class="form-control"
+          placeholder="Buscar por semestre"
+          aria-label="Search"
+        />
+      </div>
       <div class="card-body">
-        {{#if students}}
-          <table class="table table-sm">
+        {{#if schedule}}
+          <table class="table table-sm" id="table">
             <thead>
               <tr class="text-center">
-
+                <th scope="col">Maestro</th>
+                <th scope="col">Materia</th>
+                <th scope="col">Inicio de materia</th>
+                <th scope="col">Fin de materia</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Aula</th>
+                <th scope="col">Horas</th>
+                <th id="btn" scope="col">Opciones</th>
               </tr>
             </thead>
-            <tbody class="text-center">
-              {{#each students}}
-                <tr>
-
+            <tbody class="text-center" id="directoryContainerstudents">
+              {{#each schedule}}
+                <tr id="{{this.semester}}" class="dynamicstudent">
+                  <td>{{this.teacher}}</td>
+                  <td>{{this.subject}}</td>
+                  <td>{{this.date_start}}</td>
+                  <td>{{this.date_end}}</td>
+                  <td class="idstudent">{{this.semester}}</td>
+                  <td>{{this.room}}</td>
+                  <td>{{this.hour}}</td>
+                  <td><a
+                      id="btn"
+                      class="btn btn-danger btn-sm" onclick="delsch('{{this._id}}')"
+                    >
+                      Borrar
+                    </a></td>
                 </tr>
               {{/each}}
             </tbody>
@@ -26,6 +54,16 @@
           <h4>No hay horarios</h4>
         {{/if}}
       </div>
+      <div class="card-footer d-flex justify-content-start">
+        <input
+          class="btn btn-success m-1"
+          type="button"
+          name="png"
+          id="png"
+          value="Descargar Horario"
+        />
+      </div>
     </div>
   </div>
 </center>
+    <script src="/javascripts/download-png-schedules.js"></script>

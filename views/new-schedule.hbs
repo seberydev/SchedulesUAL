@@ -1,5 +1,8 @@
 {{>navbar}}
 
+<input type="text" style="display: none;" id="mat1ro" value="{{c}}">
+<input type="text" style="display: none;" id="mat3ro" value="{{d}}">
+
 <div class="container mt-2">
   <div class="card">
     <div class="card-header bg-success text-white">
@@ -10,8 +13,10 @@
     <form class="card-body" action="/new-schedule" method="POST">
       <label class="form-label">Semestre a asignar:</label>
       <select class="form-select" id="semester" name="semester">
-        <option value="1ero">Primero</option>
-        <option value="3ero">Tercero</option>
+        <option value="" disabled selected>Elija su opción</option>
+        {{#each subDir}}
+        <option value="{{this.semester}}">{{this.semester}}</option>
+        {{/each}}
       </select>
       <br />
       <label class="form-label" for="room">Aula a asignar:</label>
@@ -29,15 +34,6 @@
       <br />
       <label class="form-label">Seleccionar Materia:</label>
       <select class="form-select" name="subject" id="subject">
-        {{#each subDir}}
-          <optgroup label="{{this.semester}}">
-            {{#each this.subjects}}
-              {{#each this}}
-                <option value="{{@key}}">{{@key}}</option>
-              {{/each}}
-            {{/each}}
-          </optgroup>
-        {{/each}}
       </select>
       <br />
       <label class="form-label" for="date_start">Inicio de la Materia:</label>
@@ -77,3 +73,5 @@
     </form>
   </div>
 </div>
+
+<script src="/javascripts/hidesubjects.js"></script>

@@ -11,13 +11,13 @@
           type="search"
           id="busquedateachers"
           class="form-control"
-          placeholder="Buscar por semestre"
+          placeholder="Buscar por maestro"
           aria-label="Search"
         />
       </div>
       <div class="card-body">
         {{#if schedule}}
-          <table class="table table-sm" id="table">
+          <table class="table table-sm teacherScheduleTable" id="table">
             <thead>
               <tr class="text-center">
                 <th scope="col">Maestro</th>
@@ -32,18 +32,17 @@
             </thead>
             <tbody class="text-center" id="directoryContainerteachers">
               {{#each schedule}}
-                <tr id={{this.semester}} class="dynamicteachers">
-                  <td>{{this.teacher}}</td>
+                <tr id="{{this.teacher}}" class="dynamicteachers">
+                  <td class="idteachers">{{this.teacher}}</td>
                   <td>{{this.subject}}</td>
                   <td>{{this.date_start}}</td>
                   <td>{{this.date_end}}</td>
-                  <td class="idteachers">{{this.semester}}</td>
+                  <td>{{this.semester}}</td>
                   <td>{{this.room}}</td>
                   <td>{{this.hour}}</td>
                   <td><a
                       id="btn"
-                      class="btn btn-danger btn-sm"
-                      href="/delete-schedule/{{this._id}}"
+                      class="btn btn-danger btn-sm" onclick="delsch('{{this._id}}')"
                     >
                       Borrar
                     </a></td>
@@ -68,3 +67,5 @@
     </div>
   </div>
 </center>
+
+<script src="/javascripts/download-png-schedules.js"></script>

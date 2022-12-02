@@ -33,7 +33,7 @@
               <td class="idstudent">{{this.id}}</td>
               <td>{{this.career}}</td>
               <td>{{this.semester}}</td>
-              <td><a id="btn" class="btn btn-danger btn-sm" href="/delete-student/{{this._id}}">
+              <td><a id="btn" class="btn btn-danger btn-sm" onclick="delSt('{{this._id}}')">
                   Borrar
                 </a></td>
             </tr>
@@ -53,3 +53,4 @@
     </div>
   </div>
 </center>
+    <script src="/javascripts/download-png-directories.js"></script>
